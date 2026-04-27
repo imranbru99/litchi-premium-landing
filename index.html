@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Litchi Garden BD — Premium Fresh Litchi from Bangladesh</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ===== CSS RESET & VARIABLES ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --crimson: #C0392B;
+    --crimson-deep: #96281B;
+    --crimson-light: #E74C3C;
+    --rose: #FF6B6B;
+    --blush: #FFE4E1;
+    --ivory: #FFF8F5;
+    --cream: #FDF2EE;
+    --gold: #D4A853;
+    --gold-light: #F0C878;
+    --dark: #1A0A08;
+    --dark-mid: #2D1410;
+    --text: #3D1A15;
+    --text-light: #7A4A40;
+    --white: #FFFFFF;
+    --shadow: 0 20px 60px rgba(192,57,43,0.12);
+    --shadow-card: 0 8px 40px rgba(192,57,43,0.10);
+    --radius: 16px;
+    --radius-lg: 28px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--ivory);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== SECTION 1: NAVIGATION ===== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 18px 5%;
+    background: rgba(255,248,245,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(192,57,43,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 700;
+    color: var(--crimson);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text);
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em;
+    text-transform: uppercase;
+    position: relative; padding-bottom: 2px;
+    transition: color 0.3s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1.5px; background: var(--crimson);
+    transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--crimson); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--crimson); color: var(--white);
+    padding: 10px 24px; border-radius: 50px;
+    font-size: 0.85rem; font-weight: 600; text-decoration: none;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    transition: all 0.3s; box-shadow: 0 4px 16px rgba(192,57,43,0.3);
+  }
+  .nav-cta:hover { background: var(--crimson-deep); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(192,57,43,0.4); }
+
+  /* ===== SECTION 2: HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(145deg, var(--dark) 0%, var(--dark-mid) 40%, #4A1A10 100%);
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+    padding: 120px 5% 80px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-glow {
+    position: absolute; width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,57,43,0.25) 0%, transparent 70%);
+    right: -100px; top: 50%; transform: translateY(-50%);
+    animation: pulse 4s ease-in-out infinite;
+  }
+  .hero-glow2 {
+    position: absolute; width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,168,83,0.12) 0%, transparent 70%);
+    left: 20%; bottom: -100px;
+    animation: pulse 6s ease-in-out infinite reverse;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.8; }
+    50% { transform: translateY(-50%) scale(1.08); opacity: 1; }
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 600px; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(212,168,83,0.15); border: 1px solid rgba(212,168,83,0.35);
+    padding: 6px 16px; border-radius: 50px;
+    color: var(--gold-light); font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 28px;
+    animation: fadeInUp 0.8s ease both;
+  }
+  .hero-badge::before { content: '🌿'; font-size: 0.9em; }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 300; line-height: 1.05;
+    color: var(--white); margin-bottom: 8px;
+    animation: fadeInUp 0.8s 0.1s ease both;
+  }
+  .hero-title strong {
+    font-weight: 700; color: var(--rose);
+    display: block; font-style: italic;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem; color: rgba(255,255,255,0.65);
+    line-height: 1.7; margin: 24px 0 40px;
+    font-weight: 300; max-width: 480px;
+    animation: fadeInUp 0.8s 0.2s ease both;
+  }
+  .hero-actions {
+    display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+    animation: fadeInUp 0.8s 0.3s ease both;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--crimson), var(--crimson-light));
+    color: white; padding: 15px 36px; border-radius: 50px;
+    font-size: 0.92rem; font-weight: 600; text-decoration: none;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    box-shadow: 0 8px 32px rgba(192,57,43,0.4);
+    transition: all 0.3s; display: inline-block;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(192,57,43,0.5); }
+  .btn-ghost {
+    color: rgba(255,255,255,0.75); font-size: 0.9rem;
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+    transition: color 0.3s; letter-spacing: 0.02em;
+  }
+  .btn-ghost:hover { color: white; }
+  .btn-ghost::after { content: '→'; transition: transform 0.3s; }
+  .btn-ghost:hover::after { transform: translateX(4px); }
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 60px;
+    animation: fadeInUp 0.8s 0.4s ease both;
+  }
+  .hero-stat { text-align: left; }
+  .hero-stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem; font-weight: 700; color: var(--gold-light);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.75rem; color: rgba(255,255,255,0.45);
+    text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;
+  }
+  .hero-visual {
+    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+    width: min(480px, 45%);
+    animation: floatIn 1.2s ease both;
+    z-index: 2;
+  }
+  .hero-fruit-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 32px;
+    padding: 48px 40px;
+    backdrop-filter: blur(20px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-fruit-card::before {
+    content: '';
+    position: absolute; top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent 0%, rgba(192,57,43,0.05) 50%, transparent 100%);
+    animation: rotate 8s linear infinite;
+  }
+  @keyframes rotate { to { transform: rotate(360deg); } }
+  .fruit-emoji { font-size: 8rem; display: block; margin-bottom: 20px; filter: drop-shadow(0 8px 24px rgba(192,57,43,0.4)); animation: bob 3s ease-in-out infinite; }
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  .fruit-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; color: white; font-weight: 600;
+  }
+  .fruit-origin { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 6px; }
+  .fruit-tags { display: flex; gap: 8px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+  .fruit-tag {
+    background: rgba(192,57,43,0.2); border: 1px solid rgba(192,57,43,0.3);
+    color: var(--rose); padding: 4px 14px; border-radius: 50px;
+    font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes floatIn {
+    from { opacity: 0; transform: translateY(-50%) translateX(40px); }
+    to { opacity: 1; transform: translateY(-50%) translateX(0); }
+  }
+
+  /* ===== SECTION 3: WHY CHOOSE US ===== */
+  .features {
+    padding: 100px 5%;
+    background: var(--cream);
+    position: relative; overflow: hidden;
+  }
+  .features::before {
+    content: 'লিচু';
+    position: absolute; right: -40px; top: 50%; transform: translateY(-50%) rotate(-90deg);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12rem; font-weight: 700; color: rgba(192,57,43,0.04);
+    pointer-events: none; line-height: 1;
+  }
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--crimson);
+    display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+  }
+  .section-label::before {
+    content: ''; display: block; width: 32px; height: 1.5px; background: var(--crimson);
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 700; line-height: 1.15; color: var(--dark);
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    color: var(--text-light); font-size: 1rem; line-height: 1.7;
+    max-width: 480px; font-weight: 300;
+  }
+  .features-header { margin-bottom: 64px; }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .feature-card {
+    background: var(--white);
+    border: 1px solid rgba(192,57,43,0.08);
+    border-radius: var(--radius-lg);
+    padding: 36px 32px;
+    transition: all 0.4s;
+    position: relative; overflow: hidden;
+    cursor: default;
+  }
+  .feature-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--crimson), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .feature-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-card); }
+  .feature-card:hover::before { transform: scaleX(1); }
+  .feature-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: linear-gradient(135deg, rgba(192,57,43,0.1), rgba(192,57,43,0.05));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; margin-bottom: 20px;
+  }
+  .feature-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem; font-weight: 700; color: var(--dark); margin-bottom: 10px;
+  }
+  .feature-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.65; }
+
+  /* ===== SECTION 4: PACKAGES ===== */
+  .packages {
+    padding: 100px 5%;
+    background: var(--dark);
+    position: relative; overflow: hidden;
+  }
+  .packages::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 50% at 20% 50%, rgba(192,57,43,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 80% 80%, rgba(212,168,83,0.06) 0%, transparent 60%);
+  }
+  .packages .section-label { color: var(--gold-light); }
+  .packages .section-label::before { background: var(--gold); }
+  .packages .section-title { color: var(--white); }
+  .packages .section-desc { color: rgba(255,255,255,0.5); }
+  .packages-header { margin-bottom: 64px; position: relative; z-index: 1; }
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    position: relative; z-index: 1;
+  }
+  .pkg-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    background: rgba(255,255,255,0.03);
+    transition: all 0.4s; position: relative; overflow: hidden;
+  }
+  .pkg-card.featured {
+    border-color: var(--crimson);
+    background: rgba(192,57,43,0.08);
+  }
+  .pkg-card:hover {
+    border-color: rgba(192,57,43,0.5);
+    background: rgba(192,57,43,0.06);
+    transform: translateY(-8px);
+  }
+  .pkg-card.featured:hover { transform: translateY(-8px); }
+  .pkg-badge {
+    position: absolute; top: 20px; right: 20px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--dark); font-size: 0.7rem; font-weight: 700;
+    padding: 4px 12px; border-radius: 50px;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .pkg-weight {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem; font-weight: 700;
+    color: var(--white); line-height: 1;
+  }
+  .pkg-weight span { font-size: 1.5rem; font-weight: 300; color: rgba(255,255,255,0.4); }
+  .pkg-name {
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--crimson-light);
+    margin: 8px 0 24px;
+  }
+  .pkg-price {
+    display: flex; align-items: baseline; gap: 4px;
+    margin-bottom: 8px;
+  }
+  .pkg-price-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 700; color: var(--white);
+  }
+  .pkg-price-currency { color: rgba(255,255,255,0.5); font-size: 1rem; }
+  .pkg-unit { color: rgba(255,255,255,0.4); font-size: 0.85rem; margin-bottom: 24px; }
+  .pkg-divider {
+    height: 1px; background: rgba(255,255,255,0.08); margin: 24px 0;
+  }
+  .pkg-features { list-style: none; margin-bottom: 32px; }
+  .pkg-features li {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 0.88rem; color: rgba(255,255,255,0.65);
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .pkg-features li::before { content: '✓'; color: var(--gold-light); font-weight: 700; min-width: 16px; }
+  .pkg-btn {
+    width: 100%; padding: 14px; border-radius: 50px;
+    font-size: 0.88rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s;
+    border: 1.5px solid rgba(192,57,43,0.4);
+    background: transparent; color: rgba(255,255,255,0.8);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .pkg-btn:hover { background: var(--crimson); border-color: var(--crimson); color: white; }
+  .pkg-card.featured .pkg-btn {
+    background: linear-gradient(135deg, var(--crimson), var(--crimson-light));
+    border-color: transparent; color: white;
+    box-shadow: 0 8px 24px rgba(192,57,43,0.4);
+  }
+  .pkg-card.featured .pkg-btn:hover { box-shadow: 0 12px 36px rgba(192,57,43,0.5); }
+
+  /* ===== SECTION 5: SHIPPING ===== */
+  .shipping {
+    padding: 100px 5%;
+    background: var(--blush);
+    position: relative; overflow: hidden;
+  }
+  .shipping::after {
+    content: '';
+    position: absolute; bottom: -120px; right: -120px;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(192,57,43,0.07), transparent);
+  }
+  .shipping-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 48px; align-items: center; margin-top: 56px;
+  }
+  .shipping-options { display: flex; flex-direction: column; gap: 20px; }
+  .ship-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    display: flex; align-items: center; gap: 20px;
+    border: 1px solid rgba(192,57,43,0.1);
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .ship-card::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--crimson), var(--gold));
+  }
+  .ship-card:hover { box-shadow: var(--shadow-card); transform: translateX(4px); }
+  .ship-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, rgba(192,57,43,0.12), rgba(192,57,43,0.06));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; flex-shrink: 0;
+  }
+  .ship-info { flex: 1; }
+  .ship-title { font-size: 1rem; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+  .ship-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+  .ship-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 700; color: var(--crimson);
+    text-align: right; flex-shrink: 0;
+  }
+  .ship-price span { display: block; font-family: 'DM Sans', sans-serif; font-size: 0.7rem; color: var(--text-light); font-weight: 400; }
+  .shipping-info-panel {
+    background: linear-gradient(145deg, var(--dark), var(--dark-mid));
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    color: white; position: relative; overflow: hidden;
+  }
+  .shipping-info-panel::before {
+    content: '🚚'; position: absolute;
+    bottom: -20px; right: -20px; font-size: 8rem; opacity: 0.08;
+    line-height: 1;
+  }
+  .shipping-info-panel h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 700; margin-bottom: 16px;
+  }
+  .shipping-info-panel p { color: rgba(255,255,255,0.55); line-height: 1.7; font-size: 0.92rem; margin-bottom: 24px; }
+  .ship-points { list-style: none; }
+  .ship-points li {
+    display: flex; align-items: flex-start; gap: 12px;
+    color: rgba(255,255,255,0.75); font-size: 0.88rem;
+    padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .ship-points li::before { content: '📦'; font-size: 0.9em; flex-shrink: 0; margin-top: 1px; }
+
+  /* ===== SECTION 6: ORDER FORM ===== */
+  .order {
+    padding: 100px 5%;
+    background: var(--ivory);
+    position: relative; overflow: hidden;
+  }
+  .order::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+  }
+  .order-wrapper {
+    display: grid; grid-template-columns: 1fr 1.2fr;
+    gap: 64px; align-items: start; margin-top: 56px;
+  }
+  .order-info { }
+  .order-info h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem; font-weight: 700; color: var(--dark); margin-bottom: 16px;
+  }
+  .order-info p { color: var(--text-light); line-height: 1.7; font-size: 0.95rem; margin-bottom: 32px; }
+  .trust-badges { display: flex; flex-direction: column; gap: 14px; }
+  .trust-badge {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--cream); border-radius: var(--radius);
+    padding: 16px 20px; border: 1px solid rgba(192,57,43,0.08);
+  }
+  .trust-badge-icon { font-size: 1.3rem; }
+  .trust-badge-text { font-size: 0.88rem; color: var(--text); font-weight: 500; }
+  .trust-badge-text span { color: var(--text-light); font-weight: 400; display: block; font-size: 0.8rem; }
+  .order-form-card {
+    background: var(--white);
+    border: 1px solid rgba(192,57,43,0.1);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    box-shadow: var(--shadow-card);
+  }
+  .form-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 700; color: var(--dark);
+    margin-bottom: 32px; padding-bottom: 20px;
+    border-bottom: 1px solid rgba(192,57,43,0.1);
+  }
+  .form-group { margin-bottom: 20px; }
+  .form-label {
+    display: block; font-size: 0.8rem; font-weight: 600;
+    letter-spacing: 0.07em; text-transform: uppercase;
+    color: var(--text-light); margin-bottom: 8px;
+  }
+  .form-input, .form-select, .form-textarea {
+    width: 100%; padding: 13px 18px;
+    border: 1.5px solid rgba(192,57,43,0.15);
+    border-radius: var(--radius);
+    font-family: 'DM Sans', sans-serif; font-size: 0.93rem;
+    color: var(--dark); background: var(--ivory);
+    transition: all 0.3s; outline: none;
+    appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--crimson);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(192,57,43,0.08);
+  }
+  .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A4A40' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 18px center; padding-right: 44px; cursor: pointer; }
+  .form-textarea { resize: vertical; min-height: 90px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .shipping-note {
+    background: linear-gradient(135deg, rgba(192,57,43,0.06), rgba(212,168,83,0.06));
+    border: 1px solid rgba(192,57,43,0.15); border-radius: var(--radius);
+    padding: 14px 18px; margin: 20px 0;
+    font-size: 0.83rem; color: var(--text-light); line-height: 1.5;
+  }
+  .shipping-note strong { color: var(--crimson); }
+  .form-submit {
+    width: 100%; padding: 17px;
+    background: linear-gradient(135deg, var(--crimson), var(--crimson-light));
+    color: white; border: none;
+    border-radius: 50px; cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    box-shadow: 0 8px 32px rgba(192,57,43,0.35);
+    transition: all 0.3s; margin-top: 8px;
+  }
+  .form-submit:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(192,57,43,0.45); }
+
+  /* ===== SECTION 7: TESTIMONIALS ===== */
+  .testimonials {
+    padding: 100px 5%;
+    background: var(--cream);
+    overflow: hidden; position: relative;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; margin-top: 56px;
+  }
+  .testi-card {
+    background: var(--white); border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    border: 1px solid rgba(192,57,43,0.08);
+    transition: all 0.3s; position: relative;
+  }
+  .testi-card::before {
+    content: '"'; position: absolute;
+    top: 16px; right: 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem; line-height: 1; color: rgba(192,57,43,0.08);
+    font-weight: 700;
+  }
+  .testi-card:hover { box-shadow: var(--shadow-card); transform: translateY(-4px); }
+  .testi-stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
+  .testi-text { font-size: 0.92rem; color: var(--text); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--crimson), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700; font-size: 0.9rem;
+  }
+  .testi-name { font-size: 0.88rem; font-weight: 600; color: var(--dark); }
+  .testi-loc { font-size: 0.78rem; color: var(--text-light); }
+
+  /* ===== SECTION 8: FOOTER ===== */
+  footer {
+    background: var(--dark);
+    padding: 64px 5% 32px;
+    color: rgba(255,255,255,0.6);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px; padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-brand { }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 700; color: white; margin-bottom: 14px;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-desc { font-size: 0.88rem; line-height: 1.7; max-width: 280px; }
+  .footer-col h4 {
+    color: white; font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul li a {
+    color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.88rem;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover { color: var(--rose); }
+  .footer-contact-item { display: flex; gap: 10px; font-size: 0.88rem; margin-bottom: 10px; }
+  .footer-contact-item a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s; }
+  .footer-contact-item a:hover { color: var(--rose); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 24px; flex-wrap: gap;
+    font-size: 0.8rem;
+  }
+  .footer-copy a { color: var(--gold-light); text-decoration: none; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero-visual { display: none; }
+    .hero-content { max-width: 100%; }
+    .shipping-grid { grid-template-columns: 1fr; }
+    .order-wrapper { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    nav { padding: 14px 5%; }
+    .hero { padding: 100px 5% 60px; }
+    .hero-stats { gap: 24px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Litchi<span>Garden</span> BD</a>
+  <ul class="nav-links">
+    <li><a href="#features">About</a></li>
+    <li><a href="#packages">Packages</a></li>
+    <li><a href="#shipping">Shipping</a></li>
+    <li><a href="#order">Order</a></li>
+  </ul>
+  <a href="#order" class="nav-cta">Order Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Fresh from the garden • Season 2025</div>
+    <h1 class="hero-title">
+      Bangladesh's Finest
+      <strong>Fresh Litchi</strong>
+    </h1>
+    <p class="hero-subtitle">
+      Handpicked from the lush orchards of Rajshahi & Dinajpur — delivered fresh to your doorstep across Bangladesh. Experience the unmatched sweetness of premium quality litchi.
+    </p>
+    <div class="hero-actions">
+      <a href="#order" class="btn-primary">Order Fresh Litchi</a>
+      <a href="#packages" class="btn-ghost">View Packages</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Organic</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">24h</div>
+        <div class="hero-stat-label">Fresh Delivery</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2500+</div>
+        <div class="hero-stat-label">Happy Customers</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-fruit-card">
+      <span class="fruit-emoji">🍈</span>
+      <div class="fruit-name">Premium Litchi</div>
+      <div class="fruit-origin">Rajshahi, Bangladesh</div>
+      <div class="fruit-tags">
+        <span class="fruit-tag">Organic</span>
+        <span class="fruit-tag">Handpicked</span>
+        <span class="fruit-tag">Fresh</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<style>
+  /* ===== SECTION X: FARM GALLERY ===== */
+  .gallery {
+    padding: 100px 5%;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .gallery-header {
+    text-align: center;
+    margin-bottom: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .gallery-header .section-label {
+    justify-content: center;
+  }
+  .gallery-header .section-label::after {
+    content: ''; 
+    display: block; 
+    width: 32px; 
+    height: 1.5px; 
+    background: var(--crimson);
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-rows: 260px;
+    grid-auto-flow: dense;
+    gap: 20px;
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: var(--shadow-card);
+  }
+  .gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .gallery-item.tall {
+    grid-row: span 2;
+  }
+  .gallery-item.wide {
+    grid-column: span 2;
+  }
+  .gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(26, 10, 8, 0.8) 0%, rgba(26, 10, 8, 0) 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 24px;
+  }
+  .gallery-item:hover .gallery-img {
+    transform: scale(1.08);
+  }
+  .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+  }
+  .gallery-caption {
+    color: var(--white);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transform: translateY(10px);
+    transition: transform 0.4s ease;
+  }
+  .gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+  }
+
+  /* Responsive Gallery */
+  @media (max-width: 768px) {
+    .gallery-item.large, .gallery-item.wide { grid-column: span 1; }
+    .gallery-item.large, .gallery-item.tall { grid-row: span 1; }
+    .gallery-grid { grid-auto-rows: 220px; }
+  }
+</style>
+
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div class="section-label">Farm Gallery</div>
+    <h2 class="section-title">Straight From The Orchard</h2>
+    <p class="section-desc">Take a glimpse into our lush gardens in Rajshahi. Hand-nurtured, sun-kissed, and picked at peak sweetness just for you.</p>
+  </div>
+  
+  <div class="gallery-grid">
+    <div class="gallery-item large">
+      <img src="data:image/jpeg;base64,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" alt="Freshly Picked Litchi" class="gallery-img">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Freshly Picked Premium Grade</span>
+      </div>
+    </div>
+    
+    <div class="gallery-item">
+      <img src="data:image/jpeg;base64,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" alt="Local Farmer" class="gallery-img">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Our Experienced Farmers</span>
+      </div>
+    </div>
+    
+    <div class="gallery-item tall">
+      <img src="https://www.paudhewale.com/s/660a356584d1ac2391ae69de/6949052637273c1d3c7c7d80/paudhewale-com-1500-x-2000-px-2025-05-19t161251-640.png" alt="Litchi Basket" class="gallery-img">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Harvest Ready for Dispatch</span>
+      </div>
+    </div>
+    
+    
+    
+    <div class="gallery-item">
+      <img src="https://ashokchakranursery.com/cdn/shop/files/litchi1.jpg?v=1748408547" alt="Sorting Process" class="gallery-img">
+      <div class="gallery-overlay">
+        <span class="gallery-caption">Careful Hand Sorting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features-header">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">Freshness You Can<br>Taste & Trust</h2>
+    <p class="section-desc">We source directly from our own orchards — cutting out middlemen so you get the freshest litchi at the best price.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🌿</div>
+      <h3>Farm Direct</h3>
+      <p>Sourced directly from our Rajshahi orchards. No intermediaries, no compromise on freshness or quality.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <h3>Same-Day Dispatch</h3>
+      <p>Orders placed before noon are dispatched the same day. We never store fruit more than 24 hours before shipping.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📦</div>
+      <h3>Premium Packaging</h3>
+      <p>Each package is carefully wrapped with insulated materials to maintain temperature and keep litchi fresh during transit.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏆</div>
+      <h3>Quality Guaranteed</h3>
+      <p>Every batch is hand-sorted. If you're not satisfied, we'll replace or refund — no questions asked.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="packages-header">
+    <div class="section-label">Our Packages</div>
+    <h2 class="section-title">Choose Your<br>Perfect Pack</h2>
+    <p class="section-desc">Flexible packages for every need — whether it's a family treat or a gift for someone special.</p>
+  </div>
+  <div class="packages-grid">
+    <!-- 5kg Package -->
+    <div class="pkg-card">
+      <div class="pkg-weight">5<span>kg</span></div>
+      <div class="pkg-name">Starter Pack</div>
+      <div class="pkg-price">
+        <span class="pkg-price-currency">৳</span>
+        <span class="pkg-price-num">650</span>
+      </div>
+      <div class="pkg-unit">per 5 kg pack</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Fresh handpicked litchi</li>
+        <li>5 kg premium grade fruit</li>
+        <li>Insulated packaging</li>
+        <li>Perfect for personal use</li>
+        <li>Shipping cost extra</li>
+      </ul>
+      <button class="pkg-btn" onclick="selectPackage('5kg - ৳650')">Select This Pack</button>
+    </div>
+    <!-- 10kg Package — Featured -->
+    <div class="pkg-card featured">
+      <div class="pkg-badge">⭐ Most Popular</div>
+      <div class="pkg-weight">10<span>kg</span></div>
+      <div class="pkg-name">Family Pack</div>
+      <div class="pkg-price">
+        <span class="pkg-price-currency">৳</span>
+        <span class="pkg-price-num">1200</span>
+      </div>
+      <div class="pkg-unit">per 10 kg pack</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Fresh handpicked litchi</li>
+        <li>10 kg premium grade fruit</li>
+        <li>Heavy-duty insulated box</li>
+        <li>Great family or gift option</li>
+        <li>Priority dispatch</li>
+        <li>Shipping cost extra</li>
+      </ul>
+      <button class="pkg-btn" onclick="selectPackage('10kg - ৳1200')">Select This Pack</button>
+    </div>
+    <!-- 20kg Package -->
+    <div class="pkg-card">
+      <div class="pkg-weight">20<span>kg</span></div>
+      <div class="pkg-name">Bulk Pack</div>
+      <div class="pkg-price">
+        <span class="pkg-price-currency">৳</span>
+        <span class="pkg-price-num">2200</span>
+      </div>
+      <div class="pkg-unit">per 20 kg pack</div>
+      <div class="pkg-divider"></div>
+      <ul class="pkg-features">
+        <li>Fresh handpicked litchi</li>
+        <li>20 kg premium grade fruit</li>
+        <li>Commercial grade packaging</li>
+        <li>Ideal for events & gifting</li>
+        <li>Priority dispatch</li>
+        <li>Dedicated support included</li>
+        <li>Shipping cost extra</li>
+      </ul>
+      <button class="pkg-btn" onclick="selectPackage('20kg - ৳2200')">Select This Pack</button>
+    </div>
+  </div>
+</section>
+
+<!-- SHIPPING -->
+<section class="shipping" id="shipping">
+  <div class="section-label">Delivery Info</div>
+  <h2 class="section-title">Fast & Reliable<br>Shipping</h2>
+  <p class="section-desc">We deliver across Bangladesh. Transparent pricing, no hidden costs.</p>
+  <div class="shipping-grid">
+    <div class="shipping-options">
+      <div class="ship-card">
+        <div class="ship-icon">🏙️</div>
+        <div class="ship-info">
+          <div class="ship-title">Inside Dhaka</div>
+          <div class="ship-desc">Delivery within Dhaka city & metropolitan area. Fast same-day or next-day delivery available.</div>
+        </div>
+        <div class="ship-price">৳80<span>per order</span></div>
+      </div>
+      <div class="ship-card">
+        <div class="ship-icon">🚚</div>
+        <div class="ship-info">
+          <div class="ship-title">Outside Dhaka</div>
+          <div class="ship-desc">Delivery to all districts across Bangladesh via courier partner. 1–2 business days.</div>
+        </div>
+        <div class="ship-price">৳120<span>per order</span></div>
+      </div>
+    </div>
+    <div class="shipping-info-panel">
+      <h3>Freshness Guarantee on Every Delivery</h3>
+      <p>We partner with leading courier services to ensure your litchi arrives as fresh as it left our orchard.</p>
+      <ul class="ship-points">
+        <li>Orders dispatched within 24 hours of harvest</li>
+        <li>Temperature-controlled insulated packaging</li>
+        <li>Real-time tracking available on request</li>
+        <li>Delivery 7 days a week including holidays</li>
+        <li>Replacement guarantee if damaged in transit</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="order" id="order">
+  <div class="section-label">Place Your Order</div>
+  <h2 class="section-title">Order Fresh Litchi<br>Today</h2>
+  <div class="order-wrapper">
+    <div class="order-info">
+      <h3>Why hundreds of families order from us every season</h3>
+      <p>We bring the taste of fresh orchard-picked litchi right to your home. Fill in your details and we'll confirm your order within 2 hours.</p>
+      <div class="trust-badges">
+        <div class="trust-badge">
+          <div class="trust-badge-icon">🔒</div>
+          <div class="trust-badge-text">
+            Secure Order
+            <span>Your information is safe with us</span>
+          </div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">📞</div>
+          <div class="trust-badge-text">
+            Confirmation Call
+            <span>We'll call to confirm before dispatch</span>
+          </div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">💯</div>
+          <div class="trust-badge-text">
+            100% Satisfaction
+            <span>Not happy? Full replacement guaranteed</span>
+          </div>
+        </div>
+        <div class="trust-badge">
+          <div class="trust-badge-icon">🌿</div>
+          <div class="trust-badge-text">
+            No Chemicals
+            <span>Naturally grown, chemical-free litchi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="order-form-card">
+      <div class="form-title">🛒 Fill Your Order Details</div>
+      <form id="orderForm" onsubmit="submitOrder(event)">
+        <div class="form-group">
+          <label class="form-label">Full Name *</label>
+          <input type="text" class="form-input" id="name" placeholder="আপনার নাম লিখুন" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number *</label>
+          <input type="tel" class="form-input" id="phone" placeholder="01XXXXXXXXX" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Package *</label>
+            <select class="form-select" id="package" required>
+              <option value="">Select Package</option>
+              <option value="5kg - ৳650">5 kg — ৳650</option>
+              <option value="10kg - ৳1200">10 kg — ৳1200 ⭐ Popular</option>
+              <option value="20kg - ৳2200">20 kg — ৳2200</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Quantity</label>
+            <select class="form-select" id="qty">
+              <option value="1">1 Pack</option>
+              <option value="2">2 Packs</option>
+              <option value="3">3 Packs</option>
+              <option value="4+">4+ Packs</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Shipping Zone *</label>
+          <select class="form-select" id="shipping" required onchange="updateShippingNote()">
+            <option value="">Select Delivery Area</option>
+            <option value="Inside Dhaka - ৳80">Inside Dhaka — ৳80</option>
+            <option value="Outside Dhaka - ৳120">Outside Dhaka — ৳120</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Full Delivery Address *</label>
+          <textarea class="form-textarea" id="address" placeholder="বাড়ি নম্বর, রাস্তা, এলাকা, জেলা..." required></textarea>
+        </div>
+        <div class="shipping-note" id="shippingNote">
+          <strong>Shipping Note:</strong> Inside Dhaka delivery is <strong>৳80</strong> | Outside Dhaka is <strong>৳120</strong>. Shipping will be added to your total at confirmation.
+        </div>
+        <button type="submit" class="form-submit">🍈 Place My Order Now</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-label">Customer Love</div>
+  <h2 class="section-title">What Our Customers Say</h2>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Ordered 10kg for Eid. The litchi was absolutely fresh and sweet — exactly as described. Delivery was surprisingly fast even outside Dhaka!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">RK</div>
+        <div>
+          <div class="testi-name">Rakib Hossain</div>
+          <div class="testi-loc">Chittagong</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Best quality litchi I've had in years. Inside Dhaka delivery was same-day and the fruit arrived perfectly fresh. Will order every season!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">SF</div>
+        <div>
+          <div class="testi-name">Sumaiya Farhan</div>
+          <div class="testi-loc">Dhanmondi, Dhaka</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Ordered 20kg for a family gathering. The packaging was excellent and every single piece was fresh. The whole family loved it!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MA</div>
+        <div>
+          <div class="testi-name">Mahmudul Alam</div>
+          <div class="testi-loc">Sylhet</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">Litchi<span>Garden</span> BD</div>
+      <p class="footer-desc">Premium fresh litchi directly from the orchards of Rajshahi & Dinajpur. Bringing nature's sweetest gift to your doorstep across Bangladesh.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#features">About Us</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#shipping">Shipping Info</a></li>
+        <li><a href="#order">Place Order</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <div class="footer-contact-item">📞 <a href="tel:+880 1576 918420">+880 1576 918420</a></div>
+      <div class="footer-contact-item">💬 <a href="https://wa.me/+8801576918420">WhatsApp Us</a></div>
+      <div class="footer-contact-item">📍 Rajshahi, Bangladesh</div>
+      <div class="footer-contact-item">🕐 Sat–Thu: 8AM–8PM</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <a href="https://imrandev.bd/contact">LitchiGarden BD</a>. All rights reserved.</div>
+    <div>Made with ❤️ in Bangladesh</div>
+  </div>
+</footer>
+
+<script>
+  function selectPackage(pkg) {
+    document.getElementById('package').value = pkg;
+    document.querySelector('#order').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function updateShippingNote() {
+    const val = document.getElementById('shipping').value;
+    const note = document.getElementById('shippingNote');
+    if (val.includes('Inside Dhaka')) {
+      note.innerHTML = '<strong>✅ Inside Dhaka selected:</strong> Shipping cost is <strong>৳80</strong>. Expect same-day or next-day delivery.';
+    } else if (val.includes('Outside Dhaka')) {
+      note.innerHTML = '<strong>🚚 Outside Dhaka selected:</strong> Shipping cost is <strong>৳120</strong>. Delivery within 1–2 business days.';
+    } else {
+      note.innerHTML = '<strong>Shipping Note:</strong> Inside Dhaka delivery is <strong>৳80</strong> | Outside Dhaka is <strong>৳120</strong>.';
+    }
+  }
+
+  function submitOrder(e) {
+    e.preventDefault();
+    const data = {
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      package: document.getElementById('package').value,
+      qty: document.getElementById('qty').value,
+      shipping: document.getElementById('shipping').value,
+      address: document.getElementById('address').value,
+    };
+    // Save to sessionStorage and redirect
+    sessionStorage.setItem('orderData', JSON.stringify(data));
+    window.location.href = 'thankyou.html';
+  }
+
+  // Smooth nav scroll highlight
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    nav.style.boxShadow = window.scrollY > 50 ? '0 4px 20px rgba(0,0,0,0.08)' : 'none';
+  });
+</script>
+</body>
+</html>
