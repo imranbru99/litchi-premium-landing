@@ -85,7 +85,7 @@ litchi-premium-landing/
 
 ## 🤝 Contributing
 
-Contributions are welcome! Feel free to fork this repository and submit a pull request.
+Contributions are welcome! Feel free to fork this repository and submit a pull request. premium design
 
 ---
 
